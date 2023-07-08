@@ -11,8 +11,8 @@ export default NextAuth({
 			name: 'Credentials',
 			credentials: {
 				email: {
-						label: 'Email',
-						type: 'text'
+					label: 'Email',
+					type: 'text'
 				},
 				password: {
 					label: 'Password',
@@ -50,5 +50,9 @@ export default NextAuth({
 	debug: process.env.NODE_ENV === 'development',
 	session: {
 		strategy: 'jwt'
-	}
+	},
+  jwt: {
+    secret: process.env.NEXTAUTH_JWT_SECRET,
+  },
+  secret: process.env.NEXTAUTH_SECRET
 })
