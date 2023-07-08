@@ -15,6 +15,25 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           email,
         }
       })
+
+      if(existingUser) {
+        return res.status(422).json({ error: 'Email taken' })
+      }
+
+      const hashedpassword = await bcrypt.hash(password, 12)
+
+      const user = await prismadb.user.create({
+        data: {
+          email,
+          name,
+          hashedpassword,
+          image: '',
+          emailVerified: new Date()
+        }
+      })
+
+      return res.status(200).json(user)
+
     } catch (err) {
         console.log(err)
         return res.status(400).end()
