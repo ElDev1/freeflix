@@ -1,5 +1,6 @@
 import type { NextPage, NextPageContext } from 'next'
 import { getSession } from 'next-auth/react'
+import Billboard from '../components/Billboard'
 
 import Navbar from '../components/Navbar'
 
@@ -25,6 +26,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Navbar />
+      <Billboard />
     </>
   )
 }
