@@ -38,7 +38,7 @@ const Navbar = () => {
   }, [])
 
   return (
-    <nav>
+    <nav className='w-full fixed z-40'>
       <div className={`px-4 md:px-16 py-6 flex flex-row items-center transition duration-500 ${showBackground ? 'bg-zinc-900 bg-opacity-90': ''}`}>
         <h1 className='text-red-700 text-4xl font-bold'>Freeflix</h1>
         <div className='flex-row ml-8 gap-7 hidden lg:flex'>
