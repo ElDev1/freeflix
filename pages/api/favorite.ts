@@ -63,6 +63,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       return res.status(200).json(updatedUser)
     }
+
+    return res.status(405).end()
   } catch (err) {
     console.log(err)
     return res.status(400).end()
